@@ -10,7 +10,14 @@ gem "rails", "~> 7.0.4"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
+
+group :development, :test do
+  gem 'sqlite3', "~> 1.4" # Use sqlite3 as the database for Active Record
+end
+group :production do
+  gem 'pg' # Use postgresql as the database for Active Record for Heroku
+end
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -41,6 +48,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+
+gem 'shopify_api'
+
+gem 'figaro'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
